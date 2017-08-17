@@ -21,6 +21,17 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass'
 gem 'devise'
 
+#for our local server:
+group :development do
+    gem 'sqlite3'
+end
+
+#for Heroku:
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'cancancan'
@@ -29,6 +40,9 @@ gem 'hirb'
 gem 'better_errors' , group: :development
 gem 'paperclip' 
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
+gem 'certified' #for the PC users
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

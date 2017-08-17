@@ -1,3 +1,5 @@
+<% if can? :manage, Product %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
@@ -27,8 +29,10 @@
         <td><%= product.rating %></td>
         <td><%= product.category.name%></td>
         <td><%= link_to 'Show', product %></td>
+        <% if can? :update, product %>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +40,11 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<% if can? :create, Product %>
+    <%= link_to 'New Product', new_product_path, class: "btn btn-primary" %>
+<% end %>
+
+  <% else %>
+
+   <%= render 'not_allowed' %>
+<% end %>

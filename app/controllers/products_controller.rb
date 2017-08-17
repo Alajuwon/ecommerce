@@ -1,17 +1,13 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!, except: [:show]
+
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
   end
-
-
-
-function ()
-
-
 
 
   # GET /products/1
@@ -22,12 +18,10 @@ function ()
   # GET /products/new
   def new
     @product = Product.new
-    @categories = Category.order(:name)
   end
 
   # GET /products/1/edit
   def edit
-    @categories = Category.order(:name)
   end
 
   # POST /products
@@ -70,7 +64,7 @@ function ()
     end
   end
 
-  private
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])

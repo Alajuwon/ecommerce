@@ -15,7 +15,7 @@
  */
 
 @import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap"; 
 @import "font-awesome";
 
 .storefront-pics{
@@ -26,3 +26,8 @@
 .center-it{    
 	text-align: center;
 }
+
+#category-bar {
+	border-bottom: 1px  gray;
+}
+
