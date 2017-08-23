@@ -21,10 +21,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass'
 gem 'devise'
 
-#for our local server:
-group :development do
-    gem 'sqlite3'
-end
+gem 'sqlite3', group: :development
 
 #for Heroku:
 group :production do
